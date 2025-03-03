@@ -5,7 +5,7 @@ import { PrismaService } from 'src/prisma.service';
 
 @Module({
   exports: [KavezoService],
-  controllers: [KavezoController, PrismaService],
-  providers: [KavezoService],
+  controllers: [KavezoController],
+  providers: [KavezoService, PrismaService],
 })
 export class KavezoModule {}
