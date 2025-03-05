@@ -8,9 +8,16 @@ export class KavezoService {
   db: PrismaService
   constructor(db:PrismaService){
     this.db=db;
+    
   } 
   async create(createKavezoDto: CreateKavezoDto) {
-    return 'This action adds a new kavezo';
+    return await this.db.koncertek.create({
+      data: {
+        felleponev: createKavezoDto.felleponev,
+        kezdesido: new Date(createKavezoDto.kezdesido), 
+        idotartam: createKavezoDto.idotartam,
+      },
+    });
   }
 
   async findAll() {
