@@ -1,15 +1,21 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
+import { KavezoService } from './kavezo/kavezo.service';
+
+
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly kavezoService: KavezoService, 
+  ) {}
 
   @Get()
   @Render('index')
-  getHello() {
-    return {
-      message: this.appService.getHello()
-    };
+  async getHello() {
+    const data= await this.kavezoService.findAll();
+    console.log(data);
+    return {data};
   }
 }
