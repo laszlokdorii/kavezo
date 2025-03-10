@@ -15,7 +15,6 @@ export class AppController {
   @Render('index')
   async getHello() {
     const data= await this.kavezoService.findAll();
-    console.log(data);
     return {data};
   }
 }

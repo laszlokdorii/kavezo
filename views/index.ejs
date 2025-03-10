@@ -23,7 +23,7 @@
                         <% data.forEach(koncert => { %>
                             <tr>
                                 <td><%= koncert.felleponev %></td>
-                                <td><%= koncert.kezdesido %></td>
+                                <td><%= koncert.kezdesido.toLocaleString() %></td>
                                 <td><%= koncert.idotartam %></td>
                                 <td><%= koncert.elmarad %></td>
                             </tr>
